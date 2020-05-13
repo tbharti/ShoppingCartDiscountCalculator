@@ -18,7 +18,7 @@ public class ShoppingCartComputer {
         ShoppingCart shoppingCart1 = new ShoppingCart();
         shoppingCart1.addProduct(product);
         shoppingCart1.setCustomerType(CustomerType.REGULAR);
-        System.out.println("Cart value after discount : " + shoppingCart.checkout());
+        System.out.println("Cart value after discount : " + shoppingCart1.checkout());
     }
 
 }

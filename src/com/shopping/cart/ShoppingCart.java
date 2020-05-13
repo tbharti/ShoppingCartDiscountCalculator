@@ -14,20 +14,18 @@ public class ShoppingCart {
     }
 
     public void addProduct(Product product) {
+        System.out.printf("Product %s added to cart \n", product.getDescription());
         this.productList.add(product);
     }
 
     public double checkout() {
-        System.out.printf("\n\nGoing to calculate Shopping Cart bill for Customer Type: %s \n", customerType);
-        return customerType.getDiscount().applyDiscount(
-            productList.stream()
-                .peek(product -> System.out
-                    .println("Product name: " + product.getDescription() + ",  Price: " + product.getPrice()))
-                .mapToDouble(Product::getPrice)
-                .sum());
+        return customerType.getDiscount().applyDiscount(productList.stream()
+            .mapToDouble(Product::getPrice)
+            .sum());
     }
 
     public void setCustomerType(CustomerType customerType) {
+        System.out.printf("Customer Type set to %s \n", customerType);
         this.customerType = customerType;
     }
 
